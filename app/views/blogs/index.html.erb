@@ -20,15 +20,21 @@
   <tbody>
     <% @blogs.each do |blog| %>
       <tr>
-        <td><%= blog.title %></td>
-        
+      
+        <!--<td><%= blog.title %></td>-->
+<td>
+  <span class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{blog.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{blog.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>">
+    <%= blog.title %>
+  </span>
+</td>      
         
 <!--<td><%= blog.content %></td>-->
 <% if blog.content? %>
   <!-- Button trigger modal -->
-  <td><button class="btn btn-link" data-toggle="modal" data-target="#blog-<%= blog.id %>-content">
-    View content
-  </button>
+  <td>
+  	<button class="btn btn-link" data-toggle="modal" data-target="#blog-<%= blog.id %>-content">
+    	View content
+  	</button>
   </td>
 
   <!-- Modal -->
