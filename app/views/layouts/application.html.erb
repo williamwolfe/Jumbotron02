@@ -8,7 +8,23 @@
 </head>
 <body>
 
-<%= yield %>
-
+<%= render 'shared/navbar' %>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+<% end -%>
+<div id="main-container" class="container-fluid">
+      <div class="row">
+        <div id="sidebar" class="col-xs-3">
+        <%= link_to new_blog_path, class: 'btn btn-success' do %>
+  		<i class="glyphicon glyphicon-music"></i>
+  		<h3>Tealeaf Academy</h3>
+		<% end %>
+         
+        </div>
+        <div id="content" class="col-xs-9">
+         <%=yield%>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

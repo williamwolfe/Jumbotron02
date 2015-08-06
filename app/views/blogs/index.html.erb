@@ -1,8 +1,14 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'View Blog Entries', blogs_path %></li>
+  <li><%= link_to 'New Blog Entry', new_blog_path %></li>
+</ul>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Blogs</h1>
 
-<table>
+
+
+<table  class="table-bordered table-hover table-condensed table-responsive>
   <thead>
     <tr>
       <th>Title</th>
@@ -16,14 +22,17 @@
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.content %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', blog, class: 'btn btn-primary btn-xs' %></td>
+		<td><%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info btn-xs' %></td>
+		<td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+        
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<%= link_to new_blog_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Blog Entry
+<% end %>
 
-<%= link_to 'New Blog', new_blog_path %>
